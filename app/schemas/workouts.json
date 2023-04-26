@@ -1,0 +1,298 @@
+{
+    "$id": "workouts.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "name": {
+                "type": "string"
+            },
+            "start": {
+                "type": "string",
+                "format": "date-time"
+            },
+            "end": {
+                "type": "string",
+                "format": "date-time"
+            },
+            "heartRateData": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "date": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "qty": {
+                            "type": "number"
+                        },
+                        "units": {
+                            "type": "string",
+                            "enum": ["count", "bpm"]
+                        }
+                    },
+                    "required": ["date", "qty", "units"]
+                }
+            },
+            "heartRateRecovery": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "date": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "qty": {
+                            "type": "number"
+                        },
+                        "units": {
+                            "type": "string",
+                            "enum": ["count", "bpm"]
+                        }
+                    },
+                    "required": ["date", "qty", "units"]
+                }
+            },
+            "route": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "lat": {
+                            "type": "number"
+                        },
+                        "lon": {
+                            "type": "number"
+                        },
+                        "altitude": {
+                            "type": "number"
+                        },
+                        "timestamp": {
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    },
+                    "required": ["lat", "lon", "altitude", "timestamp"]
+                }
+            },
+            "totalEnergy": {
+                "type": "object",
+                "properties": {
+                    "qty": {
+                        "type": "number"
+                    },
+                    "units": {
+                        "type": "string"
+                    }
+                },
+                "required": ["qty", "units"]
+            },
+            "activeEnergy": {
+                "type": "object",
+                "properties": {
+                    "units": {
+                        "type": "string"
+                    },
+                    "qty": {
+                        "type": "number"
+                    }
+                },
+                "required": ["units", "qty"]
+            },
+            "maxHeartRate": {
+                "type": "object",
+                "properties": {
+                    "qty": {
+                        "type": "number"
+                    },
+                    "units": {
+                        "type": "string",
+                        "enum": ["bpm"]
+                    }
+                },
+                "required": ["qty", "units"]
+            },
+            "avgHeartRate": {
+                "type": "object",
+                "properties": {
+                    "qty": {
+                        "type": "number"
+                    },
+                    "units": {
+                        "type": "string",
+                        "enum": ["bpm"]
+                    }
+                },
+                "required": ["qty", "units"]
+            },
+            "stepCount": {
+                "type": "object",
+                "properties": {
+                    "qty": {
+                        "type": "number"
+                    },
+                    "units": {
+                        "type": "string",
+                        "enum": ["steps"]
+                    }
+                },
+                "required": ["qty", "units"]
+            },
+            "stepCadence": {
+                "type": "object",
+                "properties": {
+                    "qty": {
+                        "type": "number"
+                    },
+                    "units": {
+                        "type": "string",
+                        "enum": ["spm"]
+                    }
+                },
+                "required": ["qty", "units"]
+            },
+            "totalSwimmingStrokeCount": {
+                "type": "object",
+                "properties": {
+                    "qty": {
+                        "type": "number"
+                    },
+                    "units": {
+                        "type": "string",
+                        "enum": ["count"]
+                    }
+                },
+                "required": ["qty", "units"]
+            },
+            "swimCadence": {
+                "type": "object",
+                "properties": {
+                    "qty": {
+                        "type": "number"
+                    },
+                    "units": {
+                        "type": "string",
+                        "enum": ["spm"]
+                    }
+                },
+                "required": ["qty", "units"]
+            },
+            "distance": {
+                "type": "object",
+                "properties": {
+                    "qty": {
+                        "type": "number"
+                    },
+                    "units": {
+                        "type": "string"
+                    }
+                },
+                "required": ["qty", "units"]
+            },
+            "speed": {
+                "type": "object",
+                "properties": {
+                    "qty": {
+                        "type": "number"
+                    },
+                    "units": {
+                        "type": "string"
+                    }
+                },
+                "required": ["qty", "units"]
+            },
+            "flightsClimbed": {
+                "type": "object",
+                "properties": {
+                    "qty": {
+                        "type": "number"
+                    },
+                    "units": {
+                        "type": "string",
+                        "enum": ["count"]
+                    }
+                },
+                "required": ["qty", "units"]
+            },
+            "intensity": {
+                "type": "object",
+                "properties": {
+                    "qty": {
+                        "type": "number"
+                    },
+                    "units": {
+                        "type": "string",
+                        "enum": ["MET"]
+                    }
+                },
+                "required": ["qty", "units"]
+            },
+            "temperature": {
+                "type": "object",
+                "properties": {
+                    "qty": {
+                        "type": "number"
+                    },
+                    "units": {
+                        "type": "string"
+                    }
+                },
+                "required": ["qty", "units"]
+            },
+            "humidity": {
+                "type": "object",
+                "properties": {
+                    "qty": {
+                        "type": "number"
+                    },
+                    "units": {
+                        "type": "string",
+                        "enum": ["%"]
+                    }
+                },
+                "required": ["qty", "units"]
+            },
+            "elevation": {
+                "type": "object",
+                "properties": {
+                    "ascent": {
+                        "type": "number"
+                    },
+                    "descent": {
+                        "type": "number"
+                    },
+                    "units": {
+                        "type": "string"
+                    }
+                },
+                "required": ["ascent", "descent", "units"]
+            }
+        },
+        "required": [
+            "name",
+            "start",
+            "end",
+            "heartRateData",
+            "heartRateRecovery",
+            "route",
+            "totalEnergy",
+            "activeEnergy",
+            "maxHeartRate",
+            "avgHeartRate",
+            "stepCount",
+            "stepCadence",
+            "totalSwimmingStrokeCount",
+            "swimCadence",
+            "distance",
+            "speed",
+            "flightsClimbed",
+            "intensity",
+            "temperature",
+            "humidity",
+            "elevation"
+        ]
+    }
+}

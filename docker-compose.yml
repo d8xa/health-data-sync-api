@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  health-data-api:
+    image: 'd8xa/health-data-sync-api:v1.0.2'
+    build: .
+      #context: ./..
+      #dockerfile: docker/Dockerfile
+    container_name: 'health-data-sync-api'
+    env_file:
+      - .env
+      - .env.prod
+    ports:
+      - '5500:5000'
+    volumes:
+      - ${SAVE_DIR}:/output
+    restart: unless-stopped

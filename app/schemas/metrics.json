@@ -1,0 +1,318 @@
+{
+    "$id": "metrics.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "array",
+    "items": {
+        "$ref": "#/definitions/metrics/container"
+    },
+    "definitions": {
+        "metrics": {
+            "container": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "units": {
+                        "type": "string"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "$ref": "#/definitions/metrics/data/common"
+                                },
+                                {
+                                    "$ref": "#/definitions/metrics/data/blood-pressure"
+                                },
+                                {
+                                    "$ref": "#/definitions/metrics/data/heart-rate"
+                                },
+                                {
+                                    "$ref": "#/definitions/metrics/data/sleep-analysis"
+                                },
+                                {
+                                    "$ref": "#/definitions/metrics/data/blood-glucose"
+                                },
+                                {
+                                    "$ref": "#/definitions/metrics/data/sexual-activity"
+                                },
+                                {
+                                    "$ref": "#/definitions/metrics/data/handwashing"
+                                },
+                                {
+                                    "$ref": "#/definitions/metrics/data/toothbrushing"
+                                },
+                                {
+                                    "$ref": "#/definitions/metrics/data/heart-rate-notifications"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "required": ["name", "units", "data"]
+            },
+            "data": {
+                "common": {
+                    "type": "object",
+                    "properties": {
+                        "qty": {
+                            "type": "number"
+                        },
+                        "date": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "source": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["qty", "date"]
+                },
+                "blood-pressure": {
+                    "type": "object",
+                    "properties": {
+                        "date": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "systolic": {
+                            "type": "number"
+                        },
+                        "diastolic": {
+                            "type": "number"
+                        }
+                    },
+                    "required": ["date", "systolic", "diastolic"]
+                },
+                "heart-rate": {
+                    "type": "object",
+                    "properties": {
+                        "date": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "Min": {
+                            "type": "number"
+                        },
+                        "Avg": {
+                            "type": "number"
+                        },
+                        "Max": {
+                            "type": "number"
+                        }
+                    },
+                    "required": ["date", "Min", "Avg", "Max"]
+                },
+                "sleep-analysis": {
+                    "type": "object",
+                    "properties": {
+                        "date": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "asleep": {
+                            "type": "number"
+                        },
+                        "sleepStart": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "sleepEnd": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "sleepSource": {
+                            "type": "string"
+                        },
+                        "inBed": {
+                            "type": "number"
+                        },
+                        "inBedStart": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "inBedEnd": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "inBedSource": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["date", "asleep", "sleepStart", "sleepEnd", "sleepSource", "inBed", "inBedStart", "inBedEnd", "inBedSource"]
+                },
+                "blood-glucose": {
+                    "type": "object",
+                    "properties": {
+                        "date": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "qty": {
+                            "type": "number"
+                        },
+                        "mealTime": {
+                            "type": "string",
+                            "enum": ["Before Meal", "After Meal", "Unspecified"]
+                        }
+                    }
+                },
+                "sexual-activity": {
+                    "type": "object",
+                    "properties": {
+                        "date": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "Unspecified": {
+                            "type": "number"
+                        },
+                        "Protection Used": {
+                            "type": "number"
+                        },
+                        "Protetion Not Used": {
+                            "type": "number"
+                        }
+                    }
+                },
+                "handwashing": {
+                    "type": "object",
+                    "properties": {
+                        "date": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "qty": {
+                            "type": "number"
+                        },
+                        "value": {
+                            "type": "string",
+                            "enum": ["Complete", "Incomplete"]
+                        }
+                    }
+                },
+                "toothbrushing": {
+                    "type": "object",
+                    "properties": {
+                        "date": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "qty": {
+                            "type": "number"
+                        },
+                        "value": {
+                            "type": "string",
+                            "enum": ["Complete", "Incomplete"]
+                        }
+                    }
+                },
+                "heart-rate-notifications": {
+                    "type": "object",
+                    "properties": {
+                        "start": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "end": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "threshold": {
+                            "type": "number"
+                        },
+                        "heartRate": {
+                            "type": "array",
+                            "items": {
+                            "type": "object",
+                            "properties": {
+                                "hr": {
+                                "type": "number"
+                                },
+                                "units": {
+                                "type": "string",
+                                "enum": ["bpm"]
+                                },
+                                "timestamp": {
+                                "type": "object",
+                                "properties": {
+                                    "start": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                    },
+                                    "end": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                    },
+                                    "interval": {
+                                    "type": "object",
+                                    "properties": {
+                                        "duration": {
+                                        "type": "number"
+                                        },
+                                        "units": {
+                                        "type": "string",
+                                        "enum": ["s"]
+                                        }
+                                    },
+                                    "required": ["duration", "units"]
+                                    }
+                                },
+                                "required": ["start", "end", "interval"]
+                                }
+                            },
+                            "required": ["hr", "units", "timestamp"]
+                            }
+                        },
+                        "heartRateVariation": {
+                            "type": "array",
+                            "items": {
+                            "type": "object",
+                            "properties": {
+                                "hrv": {
+                                "type": "number"
+                                },
+                                "units": {
+                                "type": "string",
+                                "enum": ["ms"]
+                                },
+                                "timestamp": {
+                                "type": "object",
+                                "properties": {
+                                    "start": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                    },
+                                    "end": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                    },
+                                    "interval": {
+                                    "type": "object",
+                                    "properties": {
+                                        "duration": {
+                                        "type": "number"
+                                        },
+                                        "units": {
+                                        "type": "string",
+                                        "enum": ["s"]
+                                        }
+                                    },
+                                    "required": ["duration", "units"]
+                                    }
+                                },
+                                "required": ["start", "end", "interval"]
+                                }
+                            },
+                            "required": ["hrv", "units", "timestamp"]
+                            }
+                        }
+                        },
+                        "required": ["start", "end", "heartRate", "heartRateVariation"]
+                }
+            }
+        }
+    }
+}

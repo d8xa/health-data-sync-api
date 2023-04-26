@@ -1,0 +1,12 @@
+name: flask-env
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.10
+  - flask
+  - gunicorn
+  - flask-httpauth
+  - jsonschema
+  - python-dotenv
+  - pytest

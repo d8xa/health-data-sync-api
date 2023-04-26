@@ -1,0 +1,42 @@
+{
+    "$id": "main.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "data": {
+            "type": "object",
+            "properties": {
+                "metrics": {
+                    "$ref": "metrics.json"
+                },
+                "workouts": {
+                    "$ref": "workouts.json"
+                },
+                "symptoms": {
+                    "$ref": "symptoms.json"
+                },
+                "ecg": {
+                    "$ref": "ecg.json",
+                    "$comment": "TODO"
+                }
+            },
+            "anyOf": [
+                {
+                    "required": ["metrics"]
+                },
+                {
+                    "required": ["ecg"]
+                },
+                {
+                    "required": ["workouts"]
+                },
+                {
+                    "required": ["symptoms"]
+                }
+            ],
+            "minProperties": 1
+        }
+    },
+    "additionalProperties": false,
+    "minProperties": 1
+}
