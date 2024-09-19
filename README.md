@@ -29,6 +29,7 @@ When using the supplied `docker-compose.yml` and `docker-rebuild.sh`, ensure the
 
 * That files `.env` and `.env.prod` are present.
 * That `.env` contains environment variable `SAVE_DIR`.
+* 
 
 
 ### Environment variables

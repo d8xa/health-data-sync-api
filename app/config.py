@@ -3,7 +3,7 @@ import os
 class Config:
     FLASK_APP='run.py'
     DEBUG = False
-    UPLOAD_DIR = os.environ.get('UPLOAD_DIR', './output')
+    UPLOAD_DIR = os.environ.get('UPLOAD_DIR', '/output')
 
 class DevelopmentConfig(Config):
     FLASK_DEBUG = os.environ.get('FLASK_DEBUG', True)
